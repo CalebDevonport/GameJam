@@ -42,8 +42,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ucan8"]
-radius = 14.0
-height = 28.0
+radius = 27.0
+height = 68.0
 
 [node name="Goal" type="Area2D"]
 script = ExtResource("1_cbgh5")
