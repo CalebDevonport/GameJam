@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://j2tgg3inrfi2"]
+[gd_scene load_steps=8 format=3 uid="uid://be0u7h1axp7bs"]
 
 [ext_resource type="Script" path="res://arrow.gd" id="1_mvy71"]
-[ext_resource type="Texture2D" uid="uid://vicgk88pq56m" path="res://art/down_colour.png" id="2_ajp1r"]
-[ext_resource type="Texture2D" uid="uid://vx4q0ynv1j6e" path="res://art/left_colour.png" id="3_ayda5"]
-[ext_resource type="Texture2D" uid="uid://ewlxdocoqef8" path="res://art/right_colour.png" id="4_hbghk"]
-[ext_resource type="Texture2D" uid="uid://c501g0e5wnxrp" path="res://art/up_export.png" id="5_ldx3s"]
+[ext_resource type="Texture2D" uid="uid://doadju2qfnpc0" path="res://art/down_colour.png" id="2_ajp1r"]
+[ext_resource type="Texture2D" uid="uid://301yxig0v2xr" path="res://art/left_colour.png" id="3_ayda5"]
+[ext_resource type="Texture2D" uid="uid://bnqqpd08tdybq" path="res://art/right_colour.png" id="4_hbghk"]
+[ext_resource type="Texture2D" uid="uid://bja7uhcs66ymk" path="res://art/up_export.png" id="5_ldx3s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dln8g"]
 animations = [{
