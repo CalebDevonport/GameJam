@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://j2tgg3inrfi2"]
 
 [ext_resource type="Script" path="res://arrow.gd" id="1_mvy71"]
-[ext_resource type="Texture2D" uid="uid://vicgk88pq56m" path="res://art/down_colour.png" id="2_f2a6d"]
-[ext_resource type="Texture2D" uid="uid://vx4q0ynv1j6e" path="res://art/left_colour.png" id="3_15whg"]
-[ext_resource type="Texture2D" uid="uid://ewlxdocoqef8" path="res://art/right_colour.png" id="4_d2bwa"]
-[ext_resource type="Texture2D" uid="uid://c501g0e5wnxrp" path="res://art/up_export.png" id="5_lbqso"]
+[ext_resource type="Texture2D" uid="uid://vicgk88pq56m" path="res://art/down_colour.png" id="2_ajp1r"]
+[ext_resource type="Texture2D" uid="uid://vx4q0ynv1j6e" path="res://art/left_colour.png" id="3_ayda5"]
+[ext_resource type="Texture2D" uid="uid://ewlxdocoqef8" path="res://art/right_colour.png" id="4_hbghk"]
+[ext_resource type="Texture2D" uid="uid://c501g0e5wnxrp" path="res://art/up_export.png" id="5_ldx3s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dln8g"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f2a6d")
+"texture": ExtResource("2_ajp1r")
 }],
 "loop": true,
 "name": &"down",
@@ -18,7 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_15whg")
+"texture": ExtResource("3_ayda5")
 }],
 "loop": true,
 "name": &"left",
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_d2bwa")
+"texture": ExtResource("4_hbghk")
 }],
 "loop": true,
 "name": &"right",
@@ -34,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_lbqso")
+"texture": ExtResource("5_ldx3s")
 }],
 "loop": true,
 "name": &"up",
@@ -53,7 +53,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dln8g")
-animation = &"up"
+animation = &"down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ouc3y")
