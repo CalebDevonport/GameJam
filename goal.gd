@@ -13,15 +13,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed(_get_action_name(direction_used)) and collison_body and not emitted:
-		increase_point.emit()
-		print("point")
-		emitted = true
-		collison_body.queue_free()
-		emitted = false
+	if Input.is_action_just_pressed(_get_action_name(direction_used)) and collison_body:
+		if not emitted:
+			increase_point.emit()
+			emitted = true
+			collison_body.queue_free()
+			collison_body = null
+			emitted = false
 	elif Input.is_action_just_pressed(_get_action_name(direction_used)) and !collison_body:
 		arrow_missed.emit()
-		print("missed")
 
 func start(pos, direction):
 	position = pos
@@ -52,6 +52,6 @@ func _on_body_entered(body):
 
 
 func _on_body_exited(body):
-	collison_body = null
-	arrow_missed.emit()
-	body.queue_free()
+	if collison_body != null:
+		arrow_missed.emit()
+		body.queue_free()
