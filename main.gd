@@ -42,7 +42,6 @@ func _process(delta):
 	if box.position.y == 350:
 		boxVisible = false
 	
-	
 
 func _on_timer_timeout():
 	if timer.wait_time > 0.2:
@@ -64,13 +63,11 @@ func _on_timer_timeout():
 
 
 func _on_arrow_missed():
-	score -= 1
-	$Hud.update_score(score)
 	print("score=" + str(score))
+	box.position.y = box.position.y + 20
 
 func _on_increase_point():
-	score += 1
-	$Hud.update_score(score)
+	
 	print("score=" + str(score))
 	if boxVisible:
 		box.position.y = box.position.y - 70 
@@ -81,5 +78,6 @@ func _box_is_visible():
 	if boxVisible != true:
 		boxVisible = true	
 	
-	
-	
+func increase_score():
+	score += 1
+	$Hud.update_score(str(score) + " seconds")
