@@ -6,6 +6,7 @@ var spawn_points = []
 var box = null
 var score
 var boxVisible = false
+var endGame = false
 
 @export var arrow_scene: PackedScene
 @export var goal_scene: PackedScene
@@ -38,9 +39,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	box.position.y = box.position.y + ( 50 *delta)
-	if box.position.y == 350:
-		boxVisible = false
+	if box.position.y >= 350:
+		endGame = true
+	if !endGame: 
+		box.position.y = box.position.y + ( 50 *delta)
+		if box.position.y == 350:
+			boxVisible = false
+	if endGame:
+		$Hud.update_score(str(score) + " seconds. GAME OVER")
 	
 
 func _on_timer_timeout():
@@ -63,13 +69,14 @@ func _on_timer_timeout():
 
 
 func _on_arrow_missed():
-	print("score=" + str(score))
-	box.position.y = box.position.y + 20
+	if !endGame:
+		print("score=" + str(score))
+		box.position.y = box.position.y + 20
 
 func _on_increase_point():
 	
 	print("score=" + str(score))
-	if boxVisible:
+	if boxVisible && !endGame:
 		box.position.y = box.position.y - 70 
 		if box.position.y <= -400:
 			boxVisible = false
@@ -79,5 +86,6 @@ func _box_is_visible():
 		boxVisible = true	
 	
 func increase_score():
-	score += 1
-	$Hud.update_score(str(score) + " seconds")
+	if !endGame: 
+		score += 1
+		$Hud.update_score(str(score) + " seconds")
