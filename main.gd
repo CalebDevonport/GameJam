@@ -34,3 +34,4 @@ func _on_timer_timeout():
 	arrow.linear_velocity = Vector2.DOWN * velocity
 
 	add_child(arrow)
+	arrow.start(arrow_spawn_index)

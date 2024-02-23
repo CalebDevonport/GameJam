@@ -9,14 +9,14 @@ func _ready():
 func _process(delta):
 	pass
 
-func start(pos, direction):
+func start(direction):
 	show()
 	$CollisionShape2D.disabled = false
-	if direction == UP:
-		$AnimatedSprite2D.animation = "up"
-	elif direction == DOWN:
-		$AnimatedSprite2D.animation = "down"
-	elif direction == LEFT:
+	if direction == 0:
 		$AnimatedSprite2D.animation = "left"
-	elif direction == RIGHT:
+	elif direction == 1:
+		$AnimatedSprite2D.animation = "up"
+	elif direction == 2:
+		$AnimatedSprite2D.animation = "down"
+	elif direction == 3:
 		$AnimatedSprite2D.animation = "right"
