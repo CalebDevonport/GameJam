@@ -6,8 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://dqgb635sg3ep5" path="res://goal.tscn" id="3_suevq"]
 [ext_resource type="PackedScene" uid="uid://bu0v0bhnhtiab" path="res://box.tscn" id="4_2lkmj"]
 
+
 [node name="Main" type="Node"]
 script = ExtResource("1_02dat")
 arrow_scene = ExtResource("2_un8jb")
 goal_scene = ExtResource("3_suevq")
 box_scene = ExtResource("4_2lkmj")
+
+[node name="LeftGoal" parent="." instance=ExtResource("3_suevq")]
+
+[node name="UpGoal" parent="." instance=ExtResource("3_suevq")]
+
+[node name="RightGoal" parent="." instance=ExtResource("3_suevq")]
+
+[node name="DownGoal" parent="." instance=ExtResource("3_suevq")]
+
+[connection signal="arrow_missed" from="LeftGoal" to="." method="_on_arrow_missed"]
+[connection signal="increase_point" from="LeftGoal" to="." method="_on_increase_point"]
+[connection signal="arrow_missed" from="UpGoal" to="." method="_on_arrow_missed"]
+[connection signal="increase_point" from="UpGoal" to="." method="_on_increase_point"]
+[connection signal="arrow_missed" from="RightGoal" to="." method="_on_arrow_missed"]
+[connection signal="increase_point" from="RightGoal" to="." method="_on_increase_point"]
+[connection signal="arrow_missed" from="DownGoal" to="." method="_on_arrow_missed"]
+[connection signal="increase_point" from="DownGoal" to="." method="_on_increase_point"]
+
