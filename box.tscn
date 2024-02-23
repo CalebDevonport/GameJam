@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu0v0bhnhtiab"]
+
+[ext_resource type="Texture2D" uid="uid://b4ma2ylji7388" path="res://art/box.png" id="1_hsp0b"]
+[ext_resource type="Script" path="res://box.gd" id="1_lh5ul"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k67pb"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_piwrc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hsp0b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Box" type="Node2D"]
+material = SubResource("CanvasItemMaterial_k67pb")
+script = ExtResource("1_lh5ul")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_piwrc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

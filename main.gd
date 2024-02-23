@@ -3,9 +3,11 @@ extends Node
 var timer: Timer
 var velocity = 200
 var spawn_points = []
+var box = null
 
 @export var arrow_scene: PackedScene
 @export var goal_scene: PackedScene
+@export var box_scene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +18,13 @@ func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 	
 	var width = get_viewport().get_visible_rect().size.x
+	var height = get_viewport().get_visible_rect().size.y
+	box = box_scene.instantiate()
+	add_child(box)
+	box.position.x = 350
+	box.position.y = -770
+	
+	
 	var spawn_x_size = width / 5
 	spawn_points = [spawn_x_size, spawn_x_size * 2, spawn_x_size * 3, spawn_x_size * 4]
 	for i in spawn_points.size():
@@ -25,7 +34,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	box.position.y = box.position.y + ( 50 *delta)
+	
 
 func _on_timer_timeout():
 	timer.wait_time -= 0.001
