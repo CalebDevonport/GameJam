@@ -13,7 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed(_get_action_name(direction_used)) and collison_body:
+	if Input.is_action_just_pressed(_get_action_name(direction_used)) and collison_body != null:
 		if not emitted:
 			increase_point.emit()
 			emitted = true
