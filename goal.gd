@@ -19,8 +19,9 @@ func _process(delta):
 		emitted = true
 		collison_body.queue_free()
 		emitted = false
-		
-
+	elif Input.is_action_just_pressed(_get_action_name(direction_used)) and !collison_body:
+		arrow_missed.emit()
+		print("missed")
 
 func start(pos, direction):
 	position = pos
