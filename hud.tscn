@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://chs5koddkvkx1"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_xrabc"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_xrabc")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -44.0
+offset_right = 118.0
+offset_bottom = 44.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
