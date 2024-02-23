@@ -46,7 +46,7 @@ func _process(delta):
 		if box.position.y == 350:
 			boxVisible = false
 	if endGame:
-		$Hud.update_score(str(score) + " seconds. GAME OVER")
+		$Hud.update_score("u survived \n" + str(score) + " seconds. \nGAME OVER")	
 	
 
 func _on_timer_timeout():
