@@ -5,6 +5,7 @@ var velocity = 200
 var spawn_points = []
 var box = null
 var score
+var boxVisible = false
 
 @export var arrow_scene: PackedScene
 @export var goal_scene: PackedScene
@@ -25,6 +26,7 @@ func _ready():
 	add_child(box)
 	box.position.x = 350
 	box.position.y = -770
+	box.isBoxVisible.connect(_box_is_visible)
 	
 	
 	var spawn_x_size = width / 5
@@ -37,6 +39,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	box.position.y = box.position.y + ( 50 *delta)
+	if box.position.y == 350:
+		boxVisible = false
+	
 	
 
 func _on_timer_timeout():
@@ -65,3 +70,14 @@ func _on_arrow_missed():
 func _on_increase_point():
 	score += 1
 	print("score=" + str(score))
+	if boxVisible:
+		box.position.y = box.position.y - 70 
+		if box.position.y == -400:
+			boxVisible = false
+
+func _box_is_visible():
+	if boxVisible != true:
+		boxVisible = true	
+	
+	
+	
