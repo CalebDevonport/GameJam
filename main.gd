@@ -74,7 +74,7 @@ func _on_increase_point():
 	print("score=" + str(score))
 	if boxVisible:
 		box.position.y = box.position.y - 70 
-		if box.position.y == -400:
+		if box.position.y <= -400:
 			boxVisible = false
 
 func _box_is_visible():
