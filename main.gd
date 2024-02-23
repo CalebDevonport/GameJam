@@ -60,8 +60,10 @@ func _on_timer_timeout():
 
 func _on_arrow_missed():
 	score -= 1
+	$Hud.update_score(score)
 	print("score=" + str(score))
 
 func _on_increase_point():
 	score += 1
+	$Hud.update_score(score)
 	print("score=" + str(score))
