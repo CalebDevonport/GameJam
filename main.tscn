@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://b0fuj4tpdr3g1"]
+[gd_scene load_steps=3 format=3 uid="uid://b0fuj4tpdr3g1"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_02dat"]
+[ext_resource type="PackedScene" uid="uid://j2tgg3inrfi2" path="res://arrow.tscn" id="2_un8jb"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_02dat")
+arrow_scene = ExtResource("2_un8jb")
