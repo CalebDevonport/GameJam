@@ -5,6 +5,7 @@ var velocity = 200
 var spawn_points = []
 
 @export var arrow_scene: PackedScene
+@export var goal_scene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,10 @@ func _ready():
 	var width = get_viewport().get_visible_rect().size.x
 	var spawn_x_size = width / 5
 	spawn_points = [spawn_x_size, spawn_x_size * 2, spawn_x_size * 3, spawn_x_size * 4]
+	for i in spawn_points.size():
+		var goal = goal_scene.instantiate()
+		goal.start(Vector2(spawn_points[i], 600), i)
+		add_child(goal)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

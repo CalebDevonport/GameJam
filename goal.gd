@@ -2,7 +2,6 @@ extends Area2D
 
 signal increase_point
 signal arrow_missed
-enum {UP, DOWN, LEFT, RIGHT}
 var screen_size
 var direction_used
 var has_collision = false
@@ -22,23 +21,23 @@ func start(pos, direction):
 	direction_used = direction
 	show()
 	$CollisionShape2D.disabled = false
-	if direction == UP:
-		$AnimatedSprite2D.animation = "up"
-	elif direction == DOWN:
-		$AnimatedSprite2D.animation = "down"
-	elif direction == LEFT:
+	if direction == 0:
 		$AnimatedSprite2D.animation = "left"
-	elif direction == RIGHT:
+	elif direction == 1:
+		$AnimatedSprite2D.animation = "up"
+	elif direction == 2:
+		$AnimatedSprite2D.animation = "down"
+	elif direction == 3:
 		$AnimatedSprite2D.animation = "right"
 
 func _get_action_name(direction):
-	if direction == UP:
-		return "input_up"
-	elif direction == DOWN:
-		return "input_down"
-	elif direction == LEFT:
+	if direction == 0:
 		return "input_left"
-	elif direction == RIGHT:
+	elif direction == 1:
+		return "input_up"
+	elif direction == 2:
+		return "input_down"
+	elif direction == 3:
 		return "input_right"
 
 func _on_area_exited(area):
